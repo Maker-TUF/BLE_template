@@ -70,16 +70,16 @@ def decode_services(payload):
     services = []
     for u in decode_field(payload, _ADV_TYPE_UUID16_COMPLETE):
         try:
-            services.append(bluetooth.UUID(struct.unpack("<h", u)[0]))
+            services.append(ubluetooth.UUID(struct.unpack("<h", u)[0]))
         except ValueError as e:
             print("ValueError:", e)
     for u in decode_field(payload, _ADV_TYPE_UUID32_COMPLETE):
         try:
-            services.append(bluetooth.UUID(struct.unpack("<d", u)[0]))
+            services.append(ubluetooth.UUID(struct.unpack("<d", u)[0]))
         except ValueError as e:
             print("ValueError:", e)
     for u in decode_field(payload, _ADV_TYPE_UUID128_COMPLETE):
-        services.append(bluetooth.UUID(u))
+        services.append(ubluetooth.UUID(u))
     return services
 
 
